@@ -1,0 +1,134 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 100000
+
+# Custom hyperoperation effects
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif eval_type == 'hyper_chips' then
+	sound = 'talisman_eeechip''''
+position = "at"
+payload = '''
+elseif eval_type == 'hyper_chips' then
+	sound = may.get_operation_sound(amt[1], 'chips')
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif eval_type == 'hyper_mult' then
+	sound = 'talisman_eeemult''''
+position = "at"
+payload = '''
+elseif eval_type == 'hyper_mult' then
+	sound = may.get_operation_sound(amt[1], 'mult')
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if chips > 0 then'''
+position = "at"
+payload = '''if to_big(chips) ~= to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if mult > 0 then'''
+position = "at"
+payload = '''if to_big(mult) ~= to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if x_chips > 0 then'''
+position = "at"
+payload = '''if to_big(x_chips) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if e_chips > 0 then'''
+position = "at"
+payload = '''if to_big(e_chips) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if ee_chips > 0 then'''
+position = "at"
+payload = '''if to_big(ee_chips) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if eee_chips > 0 then'''
+position = "at"
+payload = '''if to_big(eee_chips) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if e_mult > 0 then'''
+position = "at"
+payload = '''if to_big(e_mult) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if ee_mult> 0 then'''
+position = "at"
+payload = '''if to_big(ee_mult) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if eee_mult > 0 then'''
+position = "at"
+payload = '''if to_big(eee_mult) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if h_chips ~= 0 then '''
+position = "at"
+payload = '''if to_big(h_chips) ~= to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if h_mult ~= 0 then'''
+position = "at"
+payload = '''if to_big(h_mult) ~= to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if h_x_chips > 0 then'''
+position = "at"
+payload = '''if to_big(h_x_chips) > to_big(0) then'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''if h_x_mult > 0 then'''
+position = "at"
+payload = '''if to_big(h_x_mult) > to_big(0) then'''
+match_indent = true 

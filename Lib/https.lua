@@ -1,0 +1,30 @@
+
+Dumb_yet_Dumber = Dumb_yet_Dumber or {}
+local member_fallback = 10 -- fallback member count in case the request fails or is not available
+local succ, https = pcall(require, "SMODS.https")
+Dumb_yet_Dumber.member_count = member_fallback
+
+if not succ then
+    sendErrorMessage("HTTP module could not be loaded. " .. tostring(https), "WONDER")
+end
+
+local function apply_discord_member_count(code, body, headers)
+    if body then
+        local v = string.match(body, '"approximate_member_count"%s*:%s*(%d+)')
+        Dumb_yet_Dumber.member_count = v or Dumb_yet_Dumber.member_count
+    end
+end
+
+function Dumb_yet_Dumber.update_member_count()
+    -- prevent multiple updates by checking if we already have a member count
+    if Dumb_yet_Dumber.member_count ~= member_fallback then return end
+    if https and https.asyncRequest then
+        https.asyncRequest(
+            "https://discord.com/api/v10/invites/dgvKMBC5?with_counts=true", 
+            apply_discord_member_count
+        )
+    end
+end
+
+-- make the request once on startup
+Dumb_yet_Dumber.update_member_count()

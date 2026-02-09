@@ -1,0 +1,15 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[vars]
+# Change suit of title screen card into star // not fucking working
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = 'replace_card.states.visible = false'
+position = 'before'
+payload = '''
+SMODS.change_base(replace_card, "dydb_Stars", nil)
+'''
+match_indent = true

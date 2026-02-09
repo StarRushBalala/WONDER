@@ -1,0 +1,13 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 9999999
+
+# create the neagtive rate
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "edition_rate = 1,"
+position = "after"
+payload = "negative_rate = 1,"
+match_indent = true

@@ -1,0 +1,15 @@
+{
+	"id": "Dumb_yet_Dumber",
+	"name": "Dumb_yet_Dumber",
+	"display_name": "Dumb_yet_Dumber",
+	"author": ["StarRush, Dragokillfist"],
+	"description": "WHY THE FUCK ISNT IT WORKING PROPERLYYYRGJESOESE",
+	"prefix": "dydb",
+	"main_file": "main.lua",
+	"priority": 50000000,
+	"badge_colour": "000000",
+	"badge_text_colour": "FFFFFFF",
+	"version": "1.0.0",
+	"dependencies": [
+	]
+}

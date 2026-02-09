@@ -1,0 +1,22 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# Apply enhancement to base title screen card 
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "replace_card.states.visible = false"
+position = "before"
+payload = '''
+	if conf.Menu then
+		if mode == 1 then
+			replace_card:set_ability(G.P_CENTERS.m_mult, true, true)
+		else
+			replace_card:set_ability(G.P_CENTERS.m_steel, true, true)
+		end
+	end
+'''
+match_indent = true
+overwrite = false

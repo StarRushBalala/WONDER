@@ -1,0 +1,17 @@
+{
+	"id": "Dumb_yet_Dumber",
+	"name": "Dumb_yet_Dumber",
+	"display_name": "Wonder",
+	"author": ["StarRush, Many MANY redditors all around the world"],
+	"description": "WHY THE FUCK ISNT IT WORKING PROPERLYYYRGJESOESE",
+	"prefix": "dydb",
+	"main_file": "main.lua",
+	"priority": 50000000,
+	"badge_colour": "A414C8",
+	"badge_text_colour": "FFFFFFF",
+	"version": "1.0.0",
+	"dependencies": [
+		"Talisman",
+		"Cryptlib"
+	]
+}
